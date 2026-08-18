@@ -7,7 +7,7 @@ const education = [
   {
     degree: 'M.S. Information Systems',
     school: 'University of Washington, Foster School of Business',
-    period: 'Jun 2025 – 2026 (Ongoing)',
+    period: 'Jun 2025 – Jun 2026 (Completed)',
     focus: ['AI/ML', 'Cloud Computing', 'Cybersecurity', 'Generative AI', 'Business Leadership'],
     icon: GraduationCap,
   },

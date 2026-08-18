@@ -19,7 +19,7 @@ export const knowledgeBase: KnowledgeChunk[] = [
     id: 'identity',
     category: 'identity',
     keywords: ['ashish','dubey','who','about','background','intro','profile','overview','summary','tpm','program','manager','leader'],
-    response: 'Ashish Dubey is a Technical Program Leader with 15+ years bridging safety-critical aerospace engineering and modern AI/ML. He has shipped 6 aircraft programs (Boeing 787, Embraer ERJ170, Gulfstream G650, Comac 919) at Honeywell, delivered $5M+ in verified ROI, and recently architected the NVIDIA Grace Blackwell GB10 runtime assurance platform at the NVIDIA Spark Hackathon 2026.\n\nHe is pursuing an M.S. in Information Systems at the University of Washington (Foster School of Business) and is actively exploring senior AI TPM and Hardware TPM opportunities.',
+    response: 'Ashish Dubey is a Technical Program Leader with 15+ years bridging safety-critical aerospace engineering and modern AI/ML. He has shipped 6 aircraft programs (Boeing 787, Embraer ERJ170, Gulfstream G650, Comac 919) at Honeywell, delivered $5M+ in verified ROI, and recently architected the NVIDIA Grace Blackwell GB10 runtime assurance platform at the NVIDIA Spark Hackathon 2026.\n\nHe holds an M.S. in Information Systems from the University of Washington (Foster School of Business, Completed June 2026) and is actively exploring senior AI TPM and Hardware TPM opportunities.',
   },
   {
     id: 'tpm_methodology',
@@ -67,7 +67,7 @@ export const knowledgeBase: KnowledgeChunk[] = [
     id: 'education',
     category: 'education',
     keywords: ['education','degree','university','washington','uw','foster','master','bachelor','school','study','academic'],
-    response: "Ashish's Education:\n\n🎓 M.S. Information Systems — University of Washington, Foster School of Business (2025–2026, Ongoing)\n   Focus: AI/ML, Cloud Computing, Cybersecurity, Generative AI, Business Leadership\n\n🎓 B.E. Information Technology — Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (2004–2008)\n   Focus: Embedded C, Data Structures, AI, Operating Systems, Microcontrollers\n\nCertifications:\n🛡️ Software Security Practitioner - Architect (ISC2)\n⚡ Six Sigma Green Belt — Global Best Project Award (Honeywell)\n💻 Certified Embedded Systems Professional (Cranes Software)",
+    response: "Ashish's Education:\n\n🎓 M.S. Information Systems — University of Washington, Foster School of Business (Jun 2025 – Jun 2026, Completed)\n   Focus: AI/ML, Cloud Computing, Cybersecurity, Generative AI, Business Leadership\n\n🎓 B.E. Information Technology — Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal (2004–2008)\n   Focus: Embedded C, Data Structures, AI, Operating Systems, Microcontrollers\n\nCertifications:\n🛡️ Software Security Practitioner - Architect (ISC2)\n⚡ Six Sigma Green Belt — Global Best Project Award (Honeywell)\n💻 Certified Embedded Systems Professional (Cranes Software)",
   },
   {
     id: 'availability',
@@ -85,7 +85,7 @@ export const knowledgeBase: KnowledgeChunk[] = [
     id: 'unique_value',
     category: 'value_prop',
     keywords: ['why','hire','unique','value','special','different','stand','best','strength','advantage','superpower'],
-    response: "What makes Ashish a standout TPM:\n\n🚀 Rare Intersection — 15+ years DO-178C Level-A aerospace + NVIDIA GB10 Physical AI = almost no TPM has both\n⚡ Technical Depth — He can sit in architecture reviews and earn engineering trust, not just track Jira tickets\n💰 Proven ROI — $5M+ in documented cost savings through automation and program leadership\n🏆 Multi-Domain Winner — NVIDIA Spark Hackathon 2026, Top Flyer (2×), Six Sigma Best Project (Global), #1 GenAI Summit\n🎓 Continuous Growth — Pursuing M.S. at UW Foster while shipping production AI systems\n🔒 Safety-Critical Credibility — 6 aircraft programs through Level-A certification, 3 trade secrets logged\n\nHe's the rare TPM who can drive program execution AND go deep on the engineering.",
+    response: "What makes Ashish a standout TPM:\n\n🚀 Rare Intersection — 15+ years DO-178C Level-A aerospace + NVIDIA GB10 Physical AI = almost no TPM has both\n⚡ Technical Depth — He can sit in architecture reviews and earn engineering trust, not just track Jira tickets\n💰 Proven ROI — $5M+ in documented cost savings through automation and program leadership\n🏆 Multi-Domain Winner — NVIDIA Spark Hackathon 2026, Top Flyer (2×), Six Sigma Best Project (Global), #1 GenAI Summit\n🎓 Continuous Growth — Completed M.S. at UW Foster while shipping production AI systems\n🔒 Safety-Critical Credibility — 6 aircraft programs through Level-A certification, 3 trade secrets logged\n\nHe's the rare TPM who can drive program execution AND go deep on the engineering.",
   },
   {
     id: 'awards',
