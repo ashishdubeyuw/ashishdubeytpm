@@ -9,12 +9,18 @@ const WhiteboardScene = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let raf: number;
+    let isVisible = !document.hidden;
+
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = Math.min(window.innerWidth, 1920);
+      canvas.height = Math.min(window.innerHeight, 1080);
+      generateLines();
+      if (isVisible) {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(draw);
+      }
     };
-    resize();
-    window.addEventListener('resize', resize);
 
     const lines: { x1: number; y1: number; x2: number; y2: number; progress: number; speed: number; color: string; width: number }[] = [];
 
@@ -29,7 +35,7 @@ const WhiteboardScene = () => {
       lines.length = 0;
       const w = canvas.width;
       const h = canvas.height;
-      const count = Math.floor((w * h) / 80000);
+      const count = Math.floor((w * h) / 90000);
 
       for (let i = 0; i < count; i++) {
         const isHoriz = Math.random() > 0.4;
@@ -43,16 +49,28 @@ const WhiteboardScene = () => {
           x2: isHoriz ? x1 + len : x1 + (Math.random() - 0.5) * 30,
           y2: isHoriz ? y1 + (Math.random() - 0.5) * 20 : y1 + len,
           progress: 0,
-          speed: 0.003 + Math.random() * 0.008,
+          speed: 0.008 + Math.random() * 0.012,
           color: colors[Math.floor(Math.random() * colors.length)],
           width: 1 + Math.random() * 2.5,
         });
       }
     };
-    generateLines();
 
-    let raf: number;
+    resize();
+    window.addEventListener('resize', resize);
+
+    const handleVisibility = () => {
+      isVisible = !document.hidden;
+      if (isVisible) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(raf);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
     const draw = () => {
+      if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       let allDone = true;
@@ -73,22 +91,25 @@ const WhiteboardScene = () => {
         ctx.stroke();
       }
 
+      // Once all lines finish drawing, the loop halts completely -> 0% CPU
       if (!allDone) {
         raf = requestAnimationFrame(draw);
       }
     };
+
     raf = requestAnimationFrame(draw);
 
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
+      document.removeEventListener('visibilitychange', handleVisibility);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 z-0 pointer-events-none"
+      className="fixed inset-0 w-full h-full pointer-events-none z-0"
       style={{ opacity: 0.7 }}
     />
   );
