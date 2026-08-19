@@ -12,16 +12,6 @@ const WhiteboardScene = () => {
     let raf: number;
     let isVisible = !document.hidden;
 
-    const resize = () => {
-      canvas.width = Math.min(window.innerWidth, 1920);
-      canvas.height = Math.min(window.innerHeight, 1080);
-      generateLines();
-      if (isVisible) {
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(draw);
-      }
-    };
-
     const lines: { x1: number; y1: number; x2: number; y2: number; progress: number; speed: number; color: string; width: number }[] = [];
 
     const colors = [
@@ -31,7 +21,7 @@ const WhiteboardScene = () => {
       'hsla(210, 10%, 60%, 0.05)',
     ];
 
-    const generateLines = () => {
+    function generateLines() {
       lines.length = 0;
       const w = canvas.width;
       const h = canvas.height;
@@ -54,22 +44,9 @@ const WhiteboardScene = () => {
           width: 1 + Math.random() * 2.5,
         });
       }
-    };
+    }
 
-    resize();
-    window.addEventListener('resize', resize);
-
-    const handleVisibility = () => {
-      isVisible = !document.hidden;
-      if (isVisible) {
-        raf = requestAnimationFrame(draw);
-      } else {
-        cancelAnimationFrame(raf);
-      }
-    };
-    document.addEventListener('visibilitychange', handleVisibility);
-
-    const draw = () => {
+    function draw() {
       if (!isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -91,13 +68,33 @@ const WhiteboardScene = () => {
         ctx.stroke();
       }
 
-      // Once all lines finish drawing, the loop halts completely -> 0% CPU
       if (!allDone) {
         raf = requestAnimationFrame(draw);
       }
-    };
+    }
 
-    raf = requestAnimationFrame(draw);
+    function resize() {
+      canvas.width = Math.min(window.innerWidth, 1920);
+      canvas.height = Math.min(window.innerHeight, 1080);
+      generateLines();
+      if (isVisible) {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(draw);
+      }
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+
+    function handleVisibility() {
+      isVisible = !document.hidden;
+      if (isVisible) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(raf);
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibility);
 
     return () => {
       cancelAnimationFrame(raf);
